@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --header-height: 4rem;
+  --layout-max-width: 48rem;
+
+  /* Core */
+  --background: #fafafa;
+  --foreground: #111111;
+
+  /* Supporting */
+  --muted: #a1a1a1;
+  --accent: #f0f0f0;
+
+  /* Primary */
+  --primary: #7a9bb8;
+  --primary-foreground: #fafafa;
+
+  /* Optional extras */
+  --border: #e5e5e5;
+
+  /* Selection */
+  --selection-background: var(--primary);
+  --selection-foreground: var(--primary-foreground);
+}
+
+[data-theme="dark"] {
+  /* Core */
+  --background: #0a0a0a;
+  --foreground: #f5f5f5;
+
+  /* Supporting */
+  --muted: #737373;
+  --accent: #171717;
+
+  /* Primary */
+  --primary: #7a9bb8;
+  --primary-foreground: #0a0a0a;
+
+  /* Optional extras */
+  --border: #262626;
+
+  /* Selection */
+  --selection-background: var(--primary);
+  --selection-foreground: var(--primary-foreground);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 0.875rem;
+  font-family: var(--font-geist-sans), sans-serif;
+}
+
+.layout-container {
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+::selection {
+  background-color: var(--selection-background);
+  color: var(--selection-foreground);
+}
