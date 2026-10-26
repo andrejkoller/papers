@@ -1,7 +1,14 @@
 "use client";
 
+import { Header } from "@/components/header";
+
 export default function ClientLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return <main aria-label="Main content">{children}</main>;
+  return (
+    <>
+      <Header />
+      <main aria-label="Main content">{children}</main>
+    </>
+  );
 }
