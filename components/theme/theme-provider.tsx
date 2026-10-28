@@ -40,53 +40,12 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     document.documentElement.dataset.theme = theme;
   }, [theme]);
 
-  const switchTheme = React.useCallback(
-    (event?: React.MouseEvent) => {
-      const newTheme: Theme = theme === "light" ? "dark" : "light";
-
-      if (event) {
-        document.documentElement.style.setProperty(
-          "--theme-x",
-          `${event.clientX}px`,
-        );
-        document.documentElement.style.setProperty(
-          "--theme-y",
-          `${event.clientY}px`,
-        );
-      } else {
-        const toggle = document.querySelector<HTMLElement>(
-          "[data-theme-toggle]",
-        );
-        if (toggle) {
-          const rect = toggle.getBoundingClientRect();
-          document.documentElement.style.setProperty(
-            "--theme-x",
-            `${rect.left + rect.width / 2}px`,
-          );
-          document.documentElement.style.setProperty(
-            "--theme-y",
-            `${rect.top + rect.height / 2}px`,
-          );
-        }
-      }
-
-      const apply = () => {
-        document.documentElement.dataset.theme = newTheme;
-        localStorage.setItem("theme", newTheme);
-        window.dispatchEvent(new StorageEvent("storage"));
-      };
-
-      if (
-        typeof document !== "undefined" &&
-        "startViewTransition" in document
-      ) {
-        document.startViewTransition(apply);
-      } else {
-        apply();
-      }
-    },
-    [theme],
-  );
+  const switchTheme = React.useCallback(() => {
+    const newTheme: Theme = theme === "light" ? "dark" : "light";
+    document.documentElement.dataset.theme = newTheme;
+    localStorage.setItem("theme", newTheme);
+    window.dispatchEvent(new StorageEvent("storage"));
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, switchTheme, mounted }}>

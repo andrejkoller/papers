@@ -23,7 +23,7 @@ export const ThemeSwitcher = () => {
   return (
     <button
       data-theme-toggle
-      onClick={(e) => switchTheme(e)}
+      onClick={() => switchTheme()}
       className={cn(
         "flex size-8 cursor-pointer items-center justify-center",
         "rounded-lg transition-colors duration-200",

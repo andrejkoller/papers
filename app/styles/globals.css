@@ -64,7 +64,7 @@ body {
   width: 100%;
   max-width: var(--layout-max-width);
   margin-inline: auto;
-  padding-inline: 1rem;
+  padding-inline: 1.5rem;
 }
 
 ::selection {
@@ -131,14 +131,4 @@ body {
 ::view-transition-new(root) {
   z-index: 2;
   animation: theme-circle 0.5s cubic-bezier(0.65, 0, 0.35, 1) forwards;
-}
-
-/* Theme circle animation */
-@keyframes theme-circle {
-  from {
-    clip-path: circle(0% at var(--theme-x, 50%) var(--theme-y, 50%));
-  }
-  to {
-    clip-path: circle(150% at var(--theme-x, 50%) var(--theme-y, 50%));
-  }
 }
